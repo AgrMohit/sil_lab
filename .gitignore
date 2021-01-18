@@ -1,7 +1,10 @@
 *
 !.gitignore
 !*.md
+!*.txt
+!*.sh
 !*.c
+!*.cpp
 !*.py
 !*.html
 !*.js
