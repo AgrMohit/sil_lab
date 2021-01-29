@@ -5,9 +5,13 @@
 !*.txt
 !*.sh
 !*.c
+!*.h
 !*.cpp
 !*.py
 !*.html
 !*.js
 !*.css
+!*.jpeg
+!*.jpg
+!*.png
 !*/
