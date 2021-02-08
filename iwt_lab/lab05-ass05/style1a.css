@@ -1,0 +1,46 @@
+body {
+  background-color: aquamarine;
+  color: darkslateblue;
+  font-family: Roboto;
+}
+main {
+  text-align: center;
+  border-width: 3px;
+  border-style: solid;
+  border-color: white;
+  margin: 0 5rem 0 5rem;
+  border-radius: 3rem;
+  padding: 2rem 0 2rem 0;
+}
+header {
+  text-align: center;
+  font-weight: 400;
+  text-decoration: underline;
+}
+footer {
+  text-align: right;
+}
+#dp {
+  border-radius: 1rem;
+}
+.aboutme {
+  color: crimson;
+  font-size: 24px;
+  margin: 1rem 20% auto 20%;
+}
+.dummy-text {
+  color: darkorchid;
+  font-size: 20px;
+  text-align: justify;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+a:visited {
+  color: midnightblue;
+}
+a:hover {
+  color: maroon;
+}
+a:active {
+  color: blueviolet;
+}
