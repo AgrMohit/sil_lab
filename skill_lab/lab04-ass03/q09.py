@@ -1,3 +1,14 @@
+# Q09 - Playing with Magic Words
+# Here a word 'S' of length 'n is said to be magic word if it satisfies:
+# All letters of S are lowercase letters of the English alphabets.
+# Si, the character in the ith position, is lexicographically smaller than
+# Sn-1-i for all even i from 0 to n/2
+# Si is lexicographically greater than Sn-1-i for all odd i from 0 to n/2
+# For example, the word 'difference' is a magic word, while 'similar' is not
+# Given a word, write python code to check whether the word is magic or not
+# 01 - Mohit Raj
+# 180310095
+
 word = input("enter a word: ")
 
 length = len(word)
@@ -18,6 +29,6 @@ for i in range(0,  int(length/2)):
             break
 
 if flag == 0:
-    print("not a magic word")
+    print(f" {word} is not a magic word")
 elif flag == 1:
-    print("magic word")
+    print(f"{word} is a magic word")
