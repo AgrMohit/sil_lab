@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 11</title>
+    <script>
+      let task_raw = prompt("Enter a summation task", "7+12+100");
+
+      function add(task) {
+        arr = task.split("+").map(Number);
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) sum += arr[i];
+        return sum;
+      }
+
+      document.write(`<p>Summation Task: ${task_raw}</p>`);
+      document.write(`<p>Result: ${add(task_raw)}</p>`);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 10</title>
+    <script>
+      let arr = [
+        [4, 9, 2],
+        [3, 5, 7],
+        [8, 1, 6],
+      ];
+
+      function flat(ar_2dm) {
+        let ar_flat = [];
+        let i, j, k;
+        k = 0;
+        for (i = 0; i < ar_2dm.length; i++)
+          for (j = 0; j < ar_2dm[i].length; j++) {
+            ar_flat[k] = ar_2dm[i][j];
+            k++;
+          }
+        console.log(ar_2dm);
+        console.log(ar_flat);
+        return ar_flat;
+      }
+
+      document.write(`<p>2 dimensionsal array: ${JSON.stringify(arr)}</p>`);
+      document.write(`<p>Flattened array: ${JSON.stringify(flat(arr))}</p>`);
+    </script>
+  </head>
+  <body></body>
+</html>

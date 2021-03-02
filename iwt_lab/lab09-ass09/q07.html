@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 07</title>
+    <script>
+      let num1 = prompt("Enter a number", "2");
+      let num2 = prompt("Enter a number", "3");
+      let num3 = prompt("Enter a number", "1");
+      function sort(arr) {
+        let i, j;
+        for (i = 0; i < arr.length - 1; i++)
+          for (j = 0; j < arr.length - i - 1; j++)
+            if (arr[j] > arr[j + 1])
+              [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        return arr;
+      }
+      document.write(`<p>Unsorted array: ${[num1, num2, num3]}</p>`);
+      document.write(
+        `<p>Array returned by sort(): ${sort([num1, num2, num3])}</p>`,
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

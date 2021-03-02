@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 09</title>
+    <script>
+      let arr1 = prompt(
+        "Enter first array as space separated integers",
+        "1 2 3 4 5",
+      ).split(" ");
+      let arr2 = prompt(
+        "Enter second array as space separated integers",
+        "6 7",
+      ).split(" ");
+
+      function concatUp(ar1, ar2) {
+        let first_ar,
+          second_ar,
+          new_ar = [];
+        if (ar1.length <= ar2.length) {
+          first_ar = ar1;
+          second_ar = ar2;
+        } else {
+          first_ar = ar2;
+          second_ar = ar1;
+        }
+        let i = 0;
+        for (; i < first_ar.length; i++) new_ar[i] = first_ar[i];
+        for (; i < first_ar.length + second_ar.length; i++)
+          new_ar[i] = second_ar[i - first_ar.length];
+        return new_ar;
+      }
+
+      document.write(`<p>First array: ${arr1}</p>`);
+      document.write(`<p>Second array: ${arr2}</p>`);
+      document.write(`<p>Concatenated array: ${concatUp(arr1, arr2)}</p>`);
+    </script>
+  </head>
+  <body></body>
+</html>

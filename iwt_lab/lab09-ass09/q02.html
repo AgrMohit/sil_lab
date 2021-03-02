@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 02</title>
+    <script>
+      let str1 = prompt("Enter a String", "Sample String");
+      function firstChar(str2) {
+        let i = 0;
+        let char = str2.charAt(i);
+        while (char === " ") {
+          i++;
+          char = str2.charAt(i);
+        }
+        return char;
+      }
+      document.write(
+        `<pre>First non-space character in '${str1}: ${firstChar(str1)}</pre>`,
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

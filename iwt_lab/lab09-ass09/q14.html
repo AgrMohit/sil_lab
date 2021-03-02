@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 14</title>
+    <script>
+      let str = prompt(
+        "Enter a string containing text in single quotes",
+        "Hello 'Your Name'. Welcome to the party",
+      );
+
+      function replace_with_regex(str1) {
+        return str1.replace(/'[^']*'/, "'XXX'");
+      }
+
+      document.write(`<o>Original string: ${str}</p>`);
+      document.write(`<o>Substituted string: ${replace_with_regex(str)}</p>`);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 12</title>
+    <script>
+      let number = parseInt(prompt("Enter a number to find factorial", "4"));
+
+      function factorial(num) {
+        let fact = 1;
+        if (num === 0) return 1;
+        for (let i = 1; i <= num; i++) fact *= i;
+        return fact;
+      }
+
+      document.write(`<p>Factorial of ${number} is: ${factorial(number)}</p>`);
+    </script>
+  </head>
+  <body></body>
+</html>

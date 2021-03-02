@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Question 04</title>
+    <script>
+      let date = prompt(
+        "Enter a date with the same format as given",
+        "27-02-2021",
+      );
+      function normalize(str1) {
+        return str1.replace(/-/g, "/");
+      }
+      document.write(`<p>${date} is converted to: ${normalize(date)}</p>`);
+    </script>
+  </head>
+  <body></body>
+</html>
