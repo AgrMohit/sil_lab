@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 10, Question 02</title>
+  </head>
+  <style>
+    body {
+      text-align: center;
+      font-family: sans-serif;
+    }
+    p {
+      margin: 2vh auto 1vh auto;
+      padding: 1vh 1vw;
+      width: 45vh;
+    }
+    #reveal {
+      background-color: hsl(0 50% 95%);
+      border: 1px dashed black;
+      transition: background-color 1s;
+    }
+    #output {
+      background-color: hsl(60 100% 85%);
+      font-size: 1.3rem;
+    }
+  </style>
+  <body>
+    <h1>Password Validator</h1>
+    <form id="pageform" onsubmit="submit">
+      <label
+        >Enter you password:
+        <input type="password" name="password-input" id="passwordbox" />
+      </label>
+      <button id="reset" type="reset">Reset</button>
+    </form>
+    <p id="reveal">Click to reveal your password</p>
+    <p id="output">Enter password to validate it</p>
+    <script>
+      // The following line changes focus to the password input on page load
+      window.onload = () => document.querySelector("#passwordbox").focus();
+      const reveal = document.querySelector("#reveal");
+      const output = document.querySelector("#output");
+
+      const resetCSS = () => {
+        reveal.innerHTML = "Click to reveal your password";
+        reveal.style.backgroundColor = "hsl(0 50% 95%)";
+        reveal.style.border = "1px dashed black";
+        output.innerHTML = "Enter password to validate it";
+        output.style.backgroundColor = "hsl(60 100% 85%)";
+        output.style.color = "black";
+      };
+
+      // The following code runs each time user presses a key on the keyboard
+      document.querySelector("#passwordbox").addEventListener("keyup", () => {
+        // On any change in the value of password box we reset the
+        // styles and text of the password reveal & output box
+        resetCSS();
+
+        const password = document.querySelector("#passwordbox").value;
+        // We only run the program when some text is entered
+        if (password.length !== 0) {
+          let points = 0;
+          // Rule 1: Length should be between 8 and 12 character
+          if (password.length >= 8 && password.length <= 12) points++;
+          // Rule 2: At least one special character
+          if (
+            password.match(/[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/) !== null
+          )
+            points++;
+          // Rule 3: At least one number
+          if (password.match(/\d/) !== null) points++;
+          // Rule 4: At least one Uppercase
+          if (password.match(/[A-Z]/) !== null) points++;
+
+          // If all 4 rules are followed passord is strong
+          // Else the password is weak
+          if (points === 4) {
+            output.innerHTML = "Strong password";
+            output.style.color = "hsl(120 50% 50%)";
+            output.style.backgroundColor = "hsl(120 50% 90%)";
+          } else {
+            output.innerHTML = "Weak password";
+            output.style.color = "hsl(0 50% 50%)";
+            output.style.backgroundColor = "hsl(0 50% 95%)";
+          }
+
+          // We create an alert with a correct password message when
+          // form is submitted and all 4 password rules are followed
+          // We alert with a weak password message when
+          // all even one rule is not followed
+          const submit = () => {
+            if (points === 4) alert("Correct password");
+            else alert("Weak password");
+          };
+
+          // Click to reveal password feature
+          reveal.addEventListener("click", () => {
+            reveal.innerHTML = password;
+            reveal.style.backgroundColor = "white";
+          });
+
+          // Reset CSS when reset button is clicked
+          document.querySelector("#reset").addEventListener("click", () => {
+            resetCSS();
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 10, Question 01</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: sans-serif;
+      }
+      #textbox {
+        margin: 0 1vh;
+      }
+      #result {
+        margin: 2vh auto;
+        font-size: 1.3rem;
+        font-weight: 400;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Factorial Calculator</h1>
+    <label>
+      Enter a number:
+      <input type="text" name="number-input" id="textbox" />
+      <h2 id="result">Enter a number in the text box</h2>
+    </label>
+    <script>
+      // The following line automatically sets focus on the textbox
+      // so that we dont need to select it manually
+      window.onload = () => document.querySelector("#textbox").focus();
+
+      // The following code runs each time user presses a key on the keyboard
+      // It check if the value currently in textbox is a number
+      // If it is a number it calculates the factorial and shows it to the user
+      // Otherwise it asks the user to enter a number
+      document.querySelector("#textbox").addEventListener("keyup", () => {
+        const number = document.querySelector("#textbox").value;
+        const n = parseInt(number);
+        if (number.length == 0 || Number.isNaN(n) || n < 0)
+          document.querySelector("#result").innerHTML =
+            "Enter a number in the text box";
+        else {
+          let factorial = 1;
+          for (let i = 1; i < n; i++) factorial *= i;
+          document.querySelector(
+            "#result",
+          ).innerHTML = `Factorial of ${n} is ${factorial}`;
+        }
+      });
+    </script>
+  </body>
+</html>
