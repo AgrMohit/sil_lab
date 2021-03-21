@@ -38,16 +38,19 @@
       document.querySelector("#textbox").addEventListener("keyup", () => {
         const number = document.querySelector("#textbox").value;
         const n = parseInt(number);
-        if (number.length == 0 || Number.isNaN(n) || n < 0)
-          document.querySelector("#result").innerHTML =
-            "Enter a number in the text box";
-        else {
+
+        if (n >= 0 && n < 10) {
           let factorial = 1;
           for (let i = 1; i < n; i++) factorial *= i;
           document.querySelector(
             "#result",
           ).innerHTML = `Factorial of ${n} is ${factorial}`;
-        }
+        } else if (number.length === 0)
+          document.querySelector("#result").innerHTML =
+            "Enter a number in the text box";
+        else if (n == number)
+          document.querySelector("#result").innerHTML =
+            "Enter a number less than 10 in the text box";
       });
     </script>
   </body>
