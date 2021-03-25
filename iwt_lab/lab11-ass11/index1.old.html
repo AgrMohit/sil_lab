@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignemt 11, Question 01</title>
+    <style>
+      label,
+      p {
+        display: block;
+        margin: 2vh 1vw;
+      }
+      input,
+      textarea {
+        display: block;
+      }
+      .nobreak {
+        display: inline;
+        /* margin: 0.1vh auto; */
+      }
+      .lessmargin {
+        margin-top: 0.2vh;
+        margin-bottom: 0.2vh;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label>Name: <input type="text" name="name" /></label>
+      <label>ID: <input type="text" name="id" /></label>
+      <label>Password: <input type="password" name="password" /></label>
+      <label>E-Mail: <input type="text" name="email" /></label>
+      <label>Age: <input type="text" name="age" /></label>
+      <p class="lessmargin">Gender:</p>
+      <label class="lessmargin"
+        ><input
+          class="nobreak"
+          type="radio"
+          value="male"
+          name="gender"
+        />Male</label
+      >
+      <label class="lessmargin"
+        ><input
+          class="nobreak"
+          type="radio"
+          value="female"
+          name="gender"
+        />Female</label
+      >
+      <label class="lessmargin"
+        ><input class="nobreak" type="radio" value="no" name="gender" />Prefer
+        not to say</label
+      >
+      <label
+        >College Address:
+        <textarea name="address" id="" cols="30" rows="4"></textarea>
+      </label>
+      <label
+        >Branch:
+        <select name="branch">
+          <option value="" disabled selected>Select</option>
+          <option value="cse">CSE</option>
+          <option value="ece">ECE</option>
+          <option value="eee">EEE</option>
+        </select></label
+      >
+      <p class="lessmargin">Technical Skills:</p>
+      <label class="lessmargin"
+        ><input class="nobreak" type="checkbox" name="c" />C</label
+      >
+      <label class="lessmargin"
+        ><input class="nobreak" type="checkbox" name="java" />Java</label
+      >
+      <label class="lessmargin"
+        ><input class="nobreak" type="checkbox" name="python" />Python</label
+      >
+      <label class="lessmargin"
+        ><input class="nobreak" type="checkbox" name="jsp" />JSP</label
+      >
+      <label>Upload Resume: <input type="file" name="resume" /></label>
+      <label class="nobreak">
+        <input class="nobreak" type="submit" value="submit" />
+      </label>
+      <label class="nobreak">
+        <input class="nobreak" type="reset" value="reset" />
+      </label>
+    </form>
+    <script>
+      document
+        .querySelector("form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const form = document.forms[0];
+          let flag = false;
+
+          // validate name
+          if (!form.name.value.match(/^[A-Za-z0-9 ]*$/)) {
+            alert("Invalid name");
+            flag = true;
+          } else if (!form.id.value.match(/^[0-9]*$/) || form.id.length !== 0) {
+            alert("Invalid ID");
+            flag = true;
+          } else if (
+            !form.password.value.match(
+              /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/,
+            )
+          ) {
+            alert("Invalid password");
+            flag = true;
+          }
+        });
+    </script>
+  </body>
+</html>

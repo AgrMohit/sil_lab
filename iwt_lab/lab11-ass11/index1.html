@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Assignment 11, Question 01</title>
+    <style>
+      * {
+        margin: 0.1% 1%;
+      }
+      body {
+        margin: 2%;
+      }
+    </style>
+    <script>
+      function validatePassword(name, id, password, age) {
+        var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+        var skills = [];
+        var email = document.getElementById("email").value;
+        var collegeAddress = document.getElementById("collegeAddress").value;
+        var branch = document.getElementById("branch").value;
+        if (
+          password.length >= 8 &&
+          password.length <= 12 &&
+          format.test(password) &&
+          /\d/.test(password) &&
+          /[A-Z]/.test(password)
+        ) {
+          document.getElementById("res1").innerHTML = "Name: " + name;
+          document.getElementById("res2").innerHTML = "ID: " + id;
+          document.getElementById("res3").innerHTML = "Email: " + email;
+          document.getElementById("res4").innerHTML = "Password: " + password;
+          document.getElementById("res5").innerHTML = "Age: " + age;
+          if (document.getElementById("male").checked) {
+            document.getElementById("res6").innerHTML = "Gender: male";
+          } else if (document.getElementById("female").checked) {
+            document.getElementById("res6").innerHTML = "Gender: female";
+          } else if (document.getElementById("other").checked) {
+            document.getElementById("res6").innerHTML = "Gender: other";
+          }
+          document.getElementById("res7").innerHTML =
+            "College Address: " + collegeAddress;
+          document.getElementById("res8").innerHTML = "Branch: " + branch;
+          if (document.getElementById("C").checked) {
+            skills.push("C");
+          } else if (document.getElementById("Java").checked) {
+            skills.push("Java");
+          } else if (document.getElementById("Python").checked) {
+            skills.push("Python");
+          } else if (document.getElementById("JSP").checked) {
+            skills.push("JSP");
+          }
+          var result = "Tech skills: ";
+          for (i = 0; i < skills.length; i++) {
+            if (i != skills.length - 1) {
+              result = result + skills[i] + ",";
+            } else {
+              result = result + skills[i];
+            }
+          }
+          document.getElementById("res9").innerHTML = result;
+        } else {
+          alert("Password invalid");
+        }
+      }
+      function validateForm() {
+        var name = document.getElementById("name").value;
+        var id = document.getElementById("id").value;
+        var password = document.getElementById("password").value;
+        var age = document.getElementById("age").value;
+        if (/^[a-zA-Z][a-zA-Z\s]*$/.test(name)) {
+          if (/^\d+$/.test(id) && /^\d+$/.test(age)) {
+            validatePassword(name, id, password, age);
+          } else {
+            alert("id and age should contain only digits");
+          }
+        } else {
+          alert("name should contain only alphabets");
+        }
+      }
+      function reset() {
+        document.getElementById("name").value = "";
+        document.getElementById("id").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("password").value = "";
+        document.getElementById("age").value = "";
+        document.getElementById("collegeAddress").value = "";
+        document.getElementById("branch").value = "";
+      }
+    </script>
+  </head>
+  <body>
+    <!-- <form> -->
+    <label for="name">Name:</label><br />
+    <input type="text" id="name" required /><br /><br />
+    <label for="id">ID:</label><br />
+    <input type="text" id="id" required /><br /><br />
+    <label for="password">Password:</label><br />
+    <input type="password" id="password" required /><br /><br />
+    <label for="email">Email:</label><br />
+    <input type="email" id="email" required /><br /><br />
+    <label for="age">Age:</label><br />
+    <input type="text" id="age" required /><br /><br />
+    <label for="gender">Gender:</label><br />
+    <input type="radio" id="male" name="gender" required />
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" />
+    <label for="female">Female</label>
+    <input type="radio" id="other" name="gender" />
+    <label for="other">Other</label><br /><br />
+    <label for="collegeAddress">College Address:</label><br />
+    <textarea id="collegeAddress" rows="4" cols="50" required></textarea>
+    <br /><br />
+
+    <label for="branch">Select your branch:</label><br />
+    <select id="branch" required>
+      <option>CSE</option>
+      <option>ECE</option>
+      <option>EEE</option>
+      <option>AEI</option>
+      <option>MCA</option></select
+    ><br /><br />
+    <label for="techSkill">Select your technical skill:</label><br />
+    <input type="checkbox" id="C" required />
+    <label for="C"> C</label><br />
+    <input type="checkbox" id="Java" required />
+    <label for="Java"> Java</label><br />
+    <input type="checkbox" id="Python" required />
+    <label for="Python"> Python</label><br />
+    <input type="checkbox" id="JSP" required />
+    <label for="JSP"> JSP</label><br /><br />
+    <p>Click on the "Choose File" button to upload a file:</p>
+    <input type="file" required /><br /><br />
+    <input type="submit" onclick="validateForm()" />
+    <button onclick="reset()">reset</button>
+    <!-- </form> -->
+    <p id="res1"></p>
+    <p id="res2"></p>
+    <p id="res3"></p>
+    <p id="res4"></p>
+    <p id="res5"></p>
+    <p id="res6"></p>
+    <p id="res7"></p>
+    <p id="res8"></p>
+    <p id="res9"></p>
+  </body>
+</html>
